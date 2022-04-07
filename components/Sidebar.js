@@ -1,4 +1,4 @@
-import { Avatar } from '@material-ui/core';
+import { Avatar, IconButton } from '@material-ui/core';
 import styled from 'styled-components';
 import ChatIcon from '@material-ui/icons/Chat';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
@@ -8,8 +8,12 @@ function Sidebar() {
 			<Header>
 				<UserAvatar />
 				<IconsContainer>
-					<ChatIcon />
-					<MoreVertIcon />
+					<IconButton>
+						<ChatIcon />
+					</IconButton>
+					<IconButton>
+						<MoreVertIcon />
+					</IconButton>
 				</IconsContainer>
 			</Header>
 		</Container>
