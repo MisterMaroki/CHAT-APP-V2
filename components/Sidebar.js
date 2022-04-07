@@ -5,8 +5,9 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import SearchIcon from '@material-ui/icons/Search';
 import * as EmailValidator from 'email-validator';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useCollection } from 'react-firebase-hooks/firebase';
+import { useCollection } from 'react-firebase-hooks/firestore';
 import { auth, db } from '../firebase';
+import Chat from './Chat';
 function Sidebar() {
 	const [user] = useAuthState(auth);
 	const userChatRef = db
@@ -21,20 +22,23 @@ function Sidebar() {
 
 		if (!input) return;
 
-		if (EmailValidator.validate(input) && input !== user.email) {
-			//need to add chat into the db 'chats' collection
+		if (
+			EmailValidator.validate(input) &&
+			!chatAlreadyExists(input) &&
+			input !== user.email
+		) {
+			//need to add chat into the db 'chats' collection if chat doesn't already exist
 			db.collection('chats').add({
 				users: [user.email, input],
 			});
 		}
 	};
 
-	const chatAlreadyExists = (recipientEmail) => {
+	const chatAlreadyExists = (recipientEmail) =>
 		!!chatsSnapshot?.docs.find(
 			(chat) =>
 				chat.data().users.find((user) => user === recipientEmail)?.length > 0
 		);
-	};
 
 	return (
 		<Container>
@@ -56,6 +60,9 @@ function Sidebar() {
 			<SidebarButton onClick={createNewChat}>Start a new chat</SidebarButton>
 
 			{/*list of chats*/}
+			{chatsSnapshot?.docs.map((chat) => (
+				<Chat key={chat.id} id={chat.id} user={chat.data().users} />
+			))}
 		</Container>
 	);
 }
