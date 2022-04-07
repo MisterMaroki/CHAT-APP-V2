@@ -3,14 +3,16 @@ import { useRouter } from 'next/router';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import styled from 'styled-components';
 import { auth, db } from '../firebase';
-import getRecipientEmail from '../utils/getRecipientEmail';
-import MoreVert from '@material-ui/icons/MoreVert';
-import { AttachFile, InsertEmoticon } from '@material-ui/icons';
+import { MoreVert, AttachFile, InsertEmoticon, Mic } from '@material-ui/icons';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import Message from './Message';
+import { useState } from 'react';
+import firebase from 'firebase/compat/app';
+import getRecipientEmail from '../utils/getRecipientEmail';
 
-function ChatScreen() {
+function ChatScreen({ chat, messages }) {
 	const [user] = useAuthState(auth);
+	const [input, setInput] = useState('');
 	const router = useRouter();
 	const [messagesSnapshot] = useCollection(
 		db
@@ -31,15 +33,40 @@ function ChatScreen() {
 					}}
 				/>
 			));
+		} else {
+			return JSON.parse(messages).map((message) => (
+				<Message key={message.id} user={message.user} message={message} />
+			));
 		}
 	};
+
+	const sendMessage = (e) => {
+		e.preventDefault();
+		db.collection('users')
+			.doc(user.id)
+			.set(
+				{ lastSeen: firebase.firestore.FieldValue.serverTimestamp() },
+				{ merge: true }
+			);
+
+		db.collection('chats').doc(router.query.id).collection('messages').add({
+			timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+			message: input,
+			user: user.email,
+			photoURL: user.photoURL,
+		});
+
+		setInput('');
+	};
+
+	const recipientEmail = getRecipientEmail(chat.users, user);
 
 	return (
 		<Container>
 			<Header>
 				<Avatar />
 				<HeaderInformation>
-					<h3>Rec email</h3>
+					<h3>{recipientEmail}</h3>
 					<p>Last seen:</p>
 				</HeaderInformation>
 				<HeaderIcons>
@@ -59,7 +86,11 @@ function ChatScreen() {
 
 			<InputContainer>
 				<InsertEmoticon />
-				<Input />
+				<Input value={input} onChange={(e) => setInput(e.target.value)} />
+				<button hidden disabled={!input} type="submit" onClick={sendMessage}>
+					Send Message
+				</button>
+				<Mic />
 			</InputContainer>
 		</Container>
 	);
@@ -118,4 +149,8 @@ const EndOfMessage = styled.div``;
 
 const HeaderIcons = styled.div``;
 
-const MessageContainer = styled.div``;
+const MessageContainer = styled.div`
+	padding: 30px;
+	background-color: #e5ded8;
+	min-height: 90vh;
+`;

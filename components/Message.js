@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-function Message(user, message) {
+function Message(key, user, message) {
 	return (
 		<Container>
-			<p>{message}</p>
+			<p>{key.message.message}</p>
 		</Container>
 	);
 }
