@@ -3,7 +3,8 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, db } from '../firebase';
 import Login from './login';
 import Loading from '../components/Loading';
-import firebase from 'firebase';
+import firebase from 'firebase/compat/app';
+import { useEffect } from 'react';
 
 function MyApp({ Component, pageProps }) {
 	const [user, loading] = useAuthState(auth);
@@ -14,7 +15,7 @@ function MyApp({ Component, pageProps }) {
 				{
 					email: user.email,
 					lastSeen: firebase.firestore.FieldValue.serverTimestamp(),
-					photoUrl: user.photoUrl,
+					photoUrl: user.photoURL,
 				},
 				{ merge: true }
 			);
