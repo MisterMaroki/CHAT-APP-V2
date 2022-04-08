@@ -1,3 +1,4 @@
+import moment from 'moment';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import styled from 'styled-components';
 import { auth } from '../firebase';
@@ -10,7 +11,10 @@ function Message(key) {
 
 	return (
 		<Container>
-			<TypeOfMessage>{message.message}</TypeOfMessage>
+			<TypeOfMessage>
+				{message.message}
+				{message.timestamp ? moment(message.timestamp).format('LT') : '...'}
+			</TypeOfMessage>
 		</Container>
 	);
 }
@@ -36,4 +40,14 @@ const Sender = styled(MessageElement)`
 const Receiver = styled(MessageElement)`
 	background-color: whitesmoke;
 	text-align: left;
+`;
+
+const Timestamp = styled.span`
+	color: gray;
+	padding: 10px;
+	font-size: 9px;
+	position: absolute;
+	bottom: 0;
+	text-align: right;
+	right: 0;
 `;
