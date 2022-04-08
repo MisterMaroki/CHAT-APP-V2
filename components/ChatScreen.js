@@ -21,6 +21,12 @@ function ChatScreen({ chat, messages }) {
 			.collection('messages')
 			.orderBy('timestamp', 'asc')
 	);
+
+	const [recipientSnapshot] = useCollection(
+		db
+			.collection('users')
+			.where('email', '==', getRecipientEmail(chat.users, user))
+	);
 	const showMessages = () => {
 		if (messagesSnapshot) {
 			return messagesSnapshot.docs.map((message) => (
@@ -58,13 +64,17 @@ function ChatScreen({ chat, messages }) {
 
 		setInput('');
 	};
-
+	const recipient = recipientSnapshot?.docs?.[0]?.data();
 	const recipientEmail = getRecipientEmail(chat.users, user);
 
 	return (
 		<Container>
 			<Header>
-				<Avatar />
+				{recipient ? (
+					<Avatar src={recipient?.photoURL} />
+				) : (
+					<Avatar src={recipientEmail[0]} />
+				)}
 				<HeaderInformation>
 					<h3>{recipientEmail}</h3>
 					<p>Last seen:</p>

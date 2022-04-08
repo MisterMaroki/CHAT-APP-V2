@@ -30,7 +30,7 @@ export async function getServerSideProps(context) {
 	//PREP the mesages on the server
 	const messagesRes = await ref
 		.collection('messages')
-		.orderBy('timestamps', 'asc')
+		.orderBy('timestamp', 'asc')
 		.get();
 
 	const messages = messagesRes.docs
