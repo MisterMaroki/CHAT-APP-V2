@@ -13,7 +13,9 @@ function Message(key) {
 		<Container>
 			<TypeOfMessage>
 				{message.message}
-				{message.timestamp ? moment(message.timestamp).format('LT') : '...'}
+				<Timestamp>
+					{message.timestamp ? moment(message.timestamp).format('LT') : '...'}
+				</Timestamp>
 			</TypeOfMessage>
 		</Container>
 	);
@@ -26,7 +28,7 @@ const MessageElement = styled.p`
 	padding: 15px;
 	border-radius: 8px;
 	margin: 10px;
-	min-width: 60px;
+	min-width: 70px;
 	padding-bottom: 26px;
 	position: relative;
 	text-align: right;

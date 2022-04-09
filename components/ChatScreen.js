@@ -6,7 +6,7 @@ import { auth, db } from '../firebase';
 import { MoreVert, AttachFile, InsertEmoticon, Mic } from '@material-ui/icons';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import Message from './Message';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import firebase from 'firebase/compat/app';
 import getRecipientEmail from '../utils/getRecipientEmail';
 import TimeAgo from 'timeago-react';
@@ -14,6 +14,7 @@ import TimeAgo from 'timeago-react';
 function ChatScreen({ chat, messages }) {
 	const [user] = useAuthState(auth);
 	const [input, setInput] = useState('');
+	const endOfMessagesRef = useRef(null);
 	const router = useRouter();
 	const [messagesSnapshot] = useCollection(
 		db
@@ -28,7 +29,14 @@ function ChatScreen({ chat, messages }) {
 			.collection('users')
 			.where('email', '==', getRecipientEmail(chat.users, user))
 	);
+	const scrollToBottom = () => {
+		endOfMessagesRef.current?.scrollIntoView({
+			behavior: 'smooth',
+			block: 'start',
+		});
+	};
 	const showMessages = () => {
+		scrollToBottom();
 		if (messagesSnapshot) {
 			return messagesSnapshot.docs.map((message) => (
 				<Message
@@ -64,6 +72,7 @@ function ChatScreen({ chat, messages }) {
 		});
 
 		setInput('');
+		scrollToBottom();
 	};
 	const recipient = recipientSnapshot?.docs?.[0]?.data();
 	const recipientEmail = getRecipientEmail(chat.users, user);
@@ -103,7 +112,7 @@ function ChatScreen({ chat, messages }) {
 
 			<MessageContainer>
 				{showMessages()}
-				<EndOfMessage />
+				<EndOfMessage ref={endOfMessagesRef} />
 			</MessageContainer>
 
 			<InputContainer>
@@ -138,7 +147,7 @@ const HeaderInformation = styled.div`
 	flex: 1;
 
 	h3 {
-		margin-bottom: 3px;
+		margin-bottom: -10px;
 	}
 	p {
 		font-size: 14px;
@@ -167,7 +176,9 @@ const InputContainer = styled.form`
 	z-index: 100;
 `;
 
-const EndOfMessage = styled.div``;
+const EndOfMessage = styled.div`
+	bottom: 50px;
+`;
 
 const HeaderIcons = styled.div``;
 
