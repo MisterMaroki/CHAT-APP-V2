@@ -27,7 +27,7 @@ function Chat({ id, users }) {
 				<UserAvatar>{recipientEmail[0]}</UserAvatar>
 			)}
 
-			<p>{recipientEmail}</p>
+			<ContactEmail>{recipientEmail}</ContactEmail>
 		</Container>
 	);
 }
@@ -48,4 +48,10 @@ const Container = styled.div`
 const UserAvatar = styled(Avatar)`
 	margin: 5px;
 	margin-right: 15px;
+`;
+
+const ContactEmail = styled.p`
+@media screen and (max-width: 768px){
+	display: none;
+}a
 `;
