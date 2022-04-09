@@ -3,7 +3,13 @@ import { useRouter } from 'next/router';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import styled from 'styled-components';
 import { auth, db } from '../firebase';
-import { MoreVert, AttachFile, InsertEmoticon, Mic } from '@material-ui/icons';
+import {
+	MoreVert,
+	AttachFile,
+	InsertEmoticon,
+	Mic,
+	Send,
+} from '@material-ui/icons';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import Message from './Message';
 import { useRef, useState } from 'react';
@@ -118,9 +124,14 @@ function ChatScreen({ chat, messages }) {
 			<InputContainer>
 				<InsertEmoticon />
 				<Input value={input} onChange={(e) => setInput(e.target.value)} />
-				<button hidden disabled={!input} type="submit" onClick={sendMessage}>
-					Send Message
-				</button>
+				<IconButton
+					hidden={!input}
+					disabled={!input}
+					type="submit"
+					onClick={sendMessage}
+				>
+					<Send />
+				</IconButton>
 				<Mic />
 			</InputContainer>
 		</Container>
