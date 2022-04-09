@@ -21,6 +21,7 @@ function Message(key) {
 	);
 }
 export default Message;
+
 const Container = styled.div``;
 
 const MessageElement = styled.p`
@@ -32,10 +33,6 @@ const MessageElement = styled.p`
 	padding-bottom: 26px;
 	position: relative;
 	text-align: right;
-	/* :nth-last-of-type(Reciever) {
-		margin: 150px;
-		background-color: black;
-	} */
 `;
 
 const Sender = styled(MessageElement)`

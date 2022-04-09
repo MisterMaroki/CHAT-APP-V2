@@ -14,7 +14,7 @@ function Chat({ chat, messages }) {
 				<title>Chat with {getRecipientEmail(chat.users, user)}</title>
 			</Head>
 
-			<Sidebar />
+			<SidebarHere />
 			<ChatContainer>
 				<ChatScreen chat={chat} messages={messages} />
 			</ChatContainer>
@@ -24,6 +24,27 @@ function Chat({ chat, messages }) {
 
 export default Chat;
 
+const Container = styled.div`
+	display: flex;
+	width: 100%;
+	overflow: hidden;
+`;
+
+const SidebarHere = styled(Sidebar)`
+	flex: 0.5;
+`;
+
+const ChatContainer = styled.div`
+	flex: 1;
+	overflow-y: scroll;
+	height: 100vh;
+
+	::-webkit-scrollbar {
+		display: none;
+	}
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+`;
 export async function getServerSideProps(context) {
 	const ref = db.collection('chats').doc(context.query.id);
 
@@ -58,19 +79,3 @@ export async function getServerSideProps(context) {
 		},
 	};
 }
-
-const Container = styled.div`
-	display: flex;
-`;
-
-const ChatContainer = styled.div`
-	flex: 1;
-	overflow: scroll;
-	height: 100vh;
-
-	::-webkit-scrollbar {
-		display: none;
-	}
-	-ms-overflow-style: none;
-	scrollbar-width: none;
-`;

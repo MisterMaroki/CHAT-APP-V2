@@ -57,7 +57,9 @@ function Sidebar() {
 				<SearchIcon />
 				<SearchInput placeholder="Search in chats" />
 			</Search>
-			<SidebarButton onClick={createNewChat}>Start a new chat</SidebarButton>
+			<SidebarButton onClick={createNewChat}>
+				{'Start a new chat'}
+			</SidebarButton>
 
 			{/*list of chats*/}
 			{chatsSnapshot?.docs.map((chat) => (
@@ -71,19 +73,21 @@ export default Sidebar;
 
 const Container = styled.div`
 	flex: 0.45;
+	flex-shrink: 1;
 	border-radius: 1px solid whitesmoke;
 	height: 100vh;
-	min-width: 300px;
+	width: 100%;
 	max-width: 350px;
 	overflow-y: scroll;
+	overflow-x: hidden;
 
 	::-webkit-scrollbar {
 		display: none;
 	}
 	-ms-overflow-style: none;
 	scrollbar-width: none;
-	@media screen and (max-width: 500px) {
-		min-width: 150px;
+	@media screen and (max-width: 770px) {
+		min-width: none;
 	}
 `;
 
@@ -97,6 +101,7 @@ const Header = styled.div`
 	align-items: center;
 	padding: 15px;
 	height: 80px;
+	width: 100%;
 	border-bottom: 1px solid whitesmoke;
 `;
 
@@ -121,12 +126,23 @@ const SearchInput = styled.input`
 	flex: 1;
 `;
 
-const IconsContainer = styled.div``;
+const IconsContainer = styled.div`
+	flex: 1;
+	display: flex;
+	justify-content: flex-end;
+
+	@media (max-width: 568px) {
+		flex-direction: column;
+		align-items: flex-end;
+	}
+`;
 
 const SidebarButton = styled(Button)`
-	width: 100%;
 	&&& {
 		border-top: 1px solid whitesmoke;
 		border-bottom: 1px solid whitesmoke;
+		@media screen and (max-width: 768px) {
+			padding-right: 0;
+		}
 	}
 `;

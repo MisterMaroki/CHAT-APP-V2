@@ -44,6 +44,9 @@ const Container = styled.div`
 	:hover {
 		background-color: #e9eaeb;
 	}
+	@media (max-width: 768px) {
+		justify-content: center;
+	}
 `;
 const UserAvatar = styled(Avatar)`
 	margin: 5px;
@@ -51,7 +54,7 @@ const UserAvatar = styled(Avatar)`
 `;
 
 const ContactEmail = styled.p`
-@media screen and (max-width: 768px){
-	display: none;
-}a
+	@media screen and (max-width: 768px) {
+		display: none;
+	}
 `;

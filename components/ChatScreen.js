@@ -149,6 +149,7 @@ const Header = styled.div`
 	display: flex;
 	padding: 11px;
 	height: 80px;
+	width: 100%;
 	align-items: center;
 	border-bottom: 1px solid whitesmoke;
 `;
@@ -173,6 +174,7 @@ const Input = styled.input`
 	border-radius: 10px;
 	background-color: whitesmoke;
 	padding: 20px;
+	margin: 0;
 	margin-left: 15px;
 	margin-right: 15px;
 `;
@@ -191,10 +193,12 @@ const EndOfMessage = styled.div`
 	padding-bottom: 60px;
 `;
 
-const HeaderIcons = styled.div``;
+const HeaderIcons = styled.div`
+	margin-right: auto;
+`;
 
 const MessageContainer = styled.div`
-	padding: 30px;
+	padding: 20px;
 	background-color: #e5ded8;
 	min-height: 100%;
 `;
