@@ -83,7 +83,7 @@ const Container = styled.div`
 	-ms-overflow-style: none;
 	scrollbar-width: none;
 	@media screen and (max-width: 500px) {
-		min-width: 100px;
+		min-width: 150px;
 	}
 `;
 
