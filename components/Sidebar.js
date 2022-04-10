@@ -73,11 +73,10 @@ export default Sidebar;
 
 const Container = styled.div`
 	flex: 0.45;
-	flex-shrink: 1;
 	border-radius: 1px solid whitesmoke;
 	height: 100vh;
 	width: 100%;
-	max-width: 350px;
+	max-width: 300px;
 	overflow-y: scroll;
 	overflow-x: hidden;
 
@@ -118,12 +117,19 @@ const Search = styled.div`
 	align-items: center;
 	padding: 20px;
 	border-radius: 2px;
+	width: 100%;
+	@media (max-width: 568px) {
+		padding: 5px;
+	}
 `;
 
 const SearchInput = styled.input`
 	outline: none;
 	border: none;
 	flex: 1;
+	@media (max-width: 568px) {
+		font-size: 0.6rem;
+	}
 `;
 
 const IconsContainer = styled.div`
@@ -131,7 +137,7 @@ const IconsContainer = styled.div`
 	display: flex;
 	justify-content: flex-end;
 
-	@media (max-width: 568px) {
+	@media (max-width: 768px) {
 		flex-direction: column;
 		align-items: flex-end;
 	}
@@ -139,10 +145,13 @@ const IconsContainer = styled.div`
 
 const SidebarButton = styled(Button)`
 	&&& {
+		width: 100%;
 		border-top: 1px solid whitesmoke;
 		border-bottom: 1px solid whitesmoke;
-		@media screen and (max-width: 768px) {
+		@media (max-width: 768px) {
 			padding-right: 0;
+			font-size: 0.7rem;
+			font-weight: bold;
 		}
 	}
 `;

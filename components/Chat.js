@@ -36,6 +36,7 @@ export default Chat;
 
 const Container = styled.div`
 	display: flex;
+	width: 100%;
 	align-items: center;
 	cursor: pointer;
 	padding: 15px;

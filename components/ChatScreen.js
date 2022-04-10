@@ -122,7 +122,6 @@ function ChatScreen({ chat, messages }) {
 			</MessageContainer>
 
 			<InputContainer>
-				<InsertEmoticon />
 				<Input value={input} onChange={(e) => setInput(e.target.value)} />
 				<IconButton
 					hidden={!input}
@@ -139,7 +138,9 @@ function ChatScreen({ chat, messages }) {
 }
 export default ChatScreen;
 
-const Container = styled.div``;
+const Container = styled.div`
+	flex: 3;
+`;
 
 const Header = styled.div`
 	position: sticky;
@@ -194,11 +195,18 @@ const EndOfMessage = styled.div`
 `;
 
 const HeaderIcons = styled.div`
-	margin-right: auto;
+	position: absolute;
+	right: 0;
+
+	@media (max-width: 600px) {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
 `;
 
 const MessageContainer = styled.div`
 	padding: 20px;
 	background-color: #e5ded8;
-	min-height: 100%;
+	min-height: 95vh;
 `;
