@@ -16,7 +16,7 @@ function Chat({ chat, messages }) {
 				<title>Chat with {getRecipientEmail(chat.users, user)}</title>
 			</Head>
 
-			<SidebarHere />
+			<Sidebar />
 			<ChatContainer>
 				<ChatScreen chat={chat} messages={messages} />
 			</ChatContainer>
@@ -30,12 +30,6 @@ const Container = styled.div`
 	display: flex;
 	width: 100%;
 	overflow: hidden;
-`;
-
-const SidebarHere = styled(Sidebar)`
-	flex: 0.5;
-	overflow-x: hidden;
-	overflow-y: scroll;
 `;
 
 const ChatContainer = styled.div`
