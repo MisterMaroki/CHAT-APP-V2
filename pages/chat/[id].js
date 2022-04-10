@@ -1,10 +1,12 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import styled from 'styled-components';
 import ChatScreen from '../../components/ChatScreen';
 import Sidebar from '../../components/Sidebar';
 import { auth, db } from '../../firebase';
 import getRecipientEmail from '../../utils/getRecipientEmail';
+
 function Chat({ chat, messages }) {
 	const [user] = useAuthState(auth);
 
@@ -32,6 +34,8 @@ const Container = styled.div`
 
 const SidebarHere = styled(Sidebar)`
 	flex: 0.5;
+	overflow-x: hidden;
+	overflow-y: scroll;
 `;
 
 const ChatContainer = styled.div`

@@ -1,4 +1,4 @@
-import { Avatar, IconButton } from '@material-ui/core';
+import { Avatar, Box, IconButton } from '@material-ui/core';
 import { useRouter } from 'next/router';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import styled from 'styled-components';
@@ -16,6 +16,7 @@ import { useRef, useState } from 'react';
 import firebase from 'firebase/compat/app';
 import getRecipientEmail from '../utils/getRecipientEmail';
 import TimeAgo from 'timeago-react';
+import Image from 'next/image';
 
 function ChatScreen({ chat, messages }) {
 	const [user] = useAuthState(auth);
@@ -61,6 +62,8 @@ function ChatScreen({ chat, messages }) {
 		}
 	};
 
+	const showWelcomeURL = messages.length > 2;
+	console.log(showWelcomeURL);
 	const sendMessage = (e) => {
 		e.preventDefault();
 		db.collection('users')
@@ -118,6 +121,13 @@ function ChatScreen({ chat, messages }) {
 
 			<MessageContainer>
 				{showMessages()}
+				{showWelcomeURL ? (
+					''
+				) : (
+					<Box style={{ position: 'absolute', bottom: '0' }}>
+						<Image height={250} width={250} src="/robot.gif" />
+					</Box>
+				)}
 				<EndOfMessage ref={endOfMessagesRef} />
 			</MessageContainer>
 
@@ -209,4 +219,17 @@ const MessageContainer = styled.div`
 	padding: 20px;
 	background-color: #e5ded8;
 	min-height: 95vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+`;
+
+const WelcomeImage = styled(Image)`
+	&&& {
+		display: none;
+		position: absolute;
+		bottom: 0;
+	}
 `;
