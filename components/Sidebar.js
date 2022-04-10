@@ -46,10 +46,10 @@ function Sidebar() {
 				<UserAvatar src={user.photoURL} onClick={() => auth.signOut()} />
 				<IconsContainer>
 					<IconButton>
-						<ChatIcon />
+						<ChatIconn />
 					</IconButton>
 					<IconButton>
-						<MoreVertIcon />
+						<MoreVertIconn />
 					</IconButton>
 				</IconsContainer>
 			</Header>
@@ -79,6 +79,10 @@ const Container = styled.div`
 	max-width: 300px;
 	overflow-y: scroll;
 	overflow-x: hidden;
+	background-color: whitesmoke;
+	&&& {
+		color: black;
+	}
 
 	::-webkit-scrollbar {
 		display: none;
@@ -94,7 +98,6 @@ const Header = styled.div`
 	display: flex;
 	position: sticky;
 	top: 0;
-	background-color: white;
 	z-index: 1;
 	justify-content: space-between;
 	align-items: center;
@@ -127,6 +130,7 @@ const SearchInput = styled.input`
 	outline: none;
 	border: none;
 	flex: 1;
+	background-color: whitesmoke;
 	@media (max-width: 568px) {
 		font-size: 0.6rem;
 	}
@@ -136,6 +140,7 @@ const IconsContainer = styled.div`
 	flex: 1;
 	display: flex;
 	justify-content: flex-end;
+	color: black;
 
 	@media (max-width: 768px) {
 		flex-direction: column;
@@ -145,6 +150,7 @@ const IconsContainer = styled.div`
 
 const SidebarButton = styled(Button)`
 	&&& {
+		color: black;
 		width: 100%;
 		border-top: 1px solid whitesmoke;
 		border-bottom: 1px solid whitesmoke;
@@ -154,4 +160,10 @@ const SidebarButton = styled(Button)`
 			font-weight: bold;
 		}
 	}
+`;
+const ChatIconn = styled(ChatIcon)`
+	color: darkgray;
+`;
+const MoreVertIconn = styled(MoreVertIcon)`
+	color: darkgray;
 `;

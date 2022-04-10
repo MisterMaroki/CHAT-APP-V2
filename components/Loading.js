@@ -3,7 +3,14 @@ import styled from 'styled-components';
 // import loader from '/loader.gif';
 function Loading() {
 	return (
-		<center style={{ display: 'grid', placeItems: 'center', height: '100vh' }}>
+		<center
+			style={{
+				display: 'grid',
+				placeItems: 'center',
+				height: '100vh',
+				backgroundColor: '#131324',
+			}}
+		>
 			<div>
 				<Image
 					src="/loader.gif"

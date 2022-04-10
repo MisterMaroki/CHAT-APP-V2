@@ -111,10 +111,10 @@ function ChatScreen({ chat, messages }) {
 				</HeaderInformation>
 				<HeaderIcons>
 					<IconButton>
-						<AttachFile />
+						<AttachFilee />
 					</IconButton>
 					<IconButton>
-						<MoreVert />
+						<MoreVertt />
 					</IconButton>
 				</HeaderIcons>
 			</Header>
@@ -138,6 +138,7 @@ function ChatScreen({ chat, messages }) {
 					disabled={!input}
 					type="submit"
 					onClick={sendMessage}
+					className="SendButton"
 				>
 					<Send />
 				</IconButton>
@@ -150,11 +151,14 @@ export default ChatScreen;
 
 const Container = styled.div`
 	flex: 3;
+	&&& {
+		color: whitesmoke;
+	}
 `;
 
 const Header = styled.div`
 	position: sticky;
-	background-color: white;
+
 	z-index: 100;
 	top: 0;
 	display: flex;
@@ -163,18 +167,20 @@ const Header = styled.div`
 	width: 100%;
 	align-items: center;
 	border-bottom: 1px solid whitesmoke;
+	background-color: #134444;
 `;
 
 const HeaderInformation = styled.div`
 	margin-left: 15px;
 	flex: 1;
+	color: whitesmoke;
 
 	h3 {
 		margin-bottom: -10px;
 	}
 	p {
 		font-size: 14px;
-		color: gray;
+		color: lightgray;
 	}
 `;
 
@@ -196,8 +202,12 @@ const InputContainer = styled.form`
 	padding: 10px;
 	position: sticky;
 	bottom: 0;
-	background-color: white;
+	background-color: #134444;
 	z-index: 100;
+	border-top: 1px solid whitesmoke;
+	.SendButton {
+		color: whitesmoke;
+	}
 `;
 
 const EndOfMessage = styled.div`
@@ -215,21 +225,21 @@ const HeaderIcons = styled.div`
 	}
 `;
 
+const AttachFilee = styled(AttachFile)`
+	color: whitesmoke;
+`;
+
+const MoreVertt = styled(MoreVert)`
+	color: whitesmoke;
+`;
+
 const MessageContainer = styled.div`
 	padding: 20px;
-	background-color: #e5ded8;
+	background-color: #134444;
 	min-height: 95vh;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	position: relative;
-`;
 
-const WelcomeImage = styled(Image)`
-	&&& {
-		display: none;
-		position: absolute;
-		bottom: 0;
-	}
+	position: relative;
 `;
