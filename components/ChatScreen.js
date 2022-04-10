@@ -151,6 +151,7 @@ export default ChatScreen;
 
 const Container = styled.div`
 	flex: 3;
+
 	&&& {
 		color: whitesmoke;
 	}
@@ -182,6 +183,14 @@ const HeaderInformation = styled.div`
 		font-size: 14px;
 		color: lightgray;
 	}
+	@media (max-width: 500px) {
+		h3 {
+			font-size: 0.8rem;
+		}
+		p {
+			font-size: 12px;
+		}
+	}
 `;
 
 const Input = styled.input`
@@ -194,6 +203,7 @@ const Input = styled.input`
 	margin: 0;
 	margin-left: 15px;
 	margin-right: 15px;
+	min-width: 10px;
 `;
 
 const InputContainer = styled.form`
@@ -204,6 +214,7 @@ const InputContainer = styled.form`
 	bottom: 0;
 	background-color: #134444;
 	z-index: 100;
+	width: 100%;
 	border-top: 1px solid whitesmoke;
 	.SendButton {
 		color: whitesmoke;
@@ -236,7 +247,7 @@ const MoreVertt = styled(MoreVert)`
 const MessageContainer = styled.div`
 	padding: 20px;
 	background-color: #134444;
-	min-height: 95vh;
+	min-height: 85vh;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
