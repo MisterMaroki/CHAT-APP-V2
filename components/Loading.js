@@ -8,7 +8,6 @@ function Loading() {
 				display: 'grid',
 				placeItems: 'center',
 				height: '100vh',
-				backgroundColor: '#131324',
 			}}
 		>
 			<div>

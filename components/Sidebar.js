@@ -105,6 +105,7 @@ const Header = styled.div`
 	height: 80px;
 	width: 100%;
 	border-bottom: 1px solid whitesmoke;
+	background-color: whitesmoke;
 `;
 
 const UserAvatar = styled(Avatar)`

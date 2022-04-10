@@ -138,11 +138,13 @@ function ChatScreen({ chat, messages }) {
 					disabled={!input}
 					type="submit"
 					onClick={sendMessage}
-					className="SendButton"
+					className="SendButton flex"
 				>
 					<Send />
 				</IconButton>
-				<Mic />
+				<IconButton className="flex">
+					<Mic />
+				</IconButton>
 			</InputContainer>
 		</Container>
 	);
@@ -194,16 +196,22 @@ const HeaderInformation = styled.div`
 `;
 
 const Input = styled.input`
-	flex: 1;
+	/* flex-basis: 500px; */
 	outline: 0;
+	flex: 1;
 	border: none;
 	border-radius: 10px;
 	background-color: whitesmoke;
 	padding: 20px;
 	margin: 0;
-	margin-left: 15px;
 	margin-right: 15px;
 	min-width: 10px;
+	/* @media (max-width: 850px) {
+		flex-basis: 250px;
+	}
+	@media (max-width: 550px) {
+		flex-basis: 150px;
+	} */
 `;
 
 const InputContainer = styled.form`
@@ -218,6 +226,9 @@ const InputContainer = styled.form`
 	border-top: 1px solid whitesmoke;
 	.SendButton {
 		color: whitesmoke;
+	}
+	.flex {
+		flex: 0.2;
 	}
 `;
 
