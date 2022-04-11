@@ -33,21 +33,22 @@ const MessageElement = styled.p`
 	padding-bottom: 26px;
 	position: relative;
 	text-align: right;
+	/* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
+	box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 `;
 
 const Sender = styled(MessageElement)`
 	margin-left: auto;
-	background-color: #242424;
+	background-color: #4285f4;
 `;
 
 const Receiver = styled(MessageElement)`
 	background-color: whitesmoke;
-	color: #242424;
+	color: #2462c0;
 	text-align: left;
 `;
 
 const Timestamp = styled.span`
-	color: gray;
 	padding: 10px;
 	font-size: 9px;
 	position: absolute;

@@ -75,7 +75,9 @@ const Container = styled.div`
 	flex: 0.4;
 	border-radius: 1px solid whitesmoke;
 	height: 100vh;
-
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+		rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+		rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 	overflow-y: scroll;
 	overflow-x: hidden;
 	background-color: whitesmoke;
@@ -130,7 +132,7 @@ const SearchInput = styled.input`
 	outline: none;
 	border: none;
 	flex: 1;
-	background-color: whitesmoke;
+	background-color: transparent;
 	@media (max-width: 568px) {
 		font-size: 0.6rem;
 	}

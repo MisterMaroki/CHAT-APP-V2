@@ -138,11 +138,11 @@ function ChatScreen({ chat, messages }) {
 					disabled={!input}
 					type="submit"
 					onClick={sendMessage}
-					className="SendButton flex"
+					className="SendButton"
 				>
 					<Send />
 				</IconButton>
-				<IconButton className="flex">
+				<IconButton>
 					<Mic />
 				</IconButton>
 			</InputContainer>
@@ -159,6 +159,16 @@ const Container = styled.div`
 	}
 `;
 
+const MessageContainer = styled.div`
+	padding: 20px;
+	background-color: lightgray;
+	min-height: 85vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+
+	position: relative;
+`;
 const Header = styled.div`
 	position: sticky;
 
@@ -169,8 +179,9 @@ const Header = styled.div`
 	height: 80px;
 	width: 100%;
 	align-items: center;
+	background-color: #4285f4;
+
 	border-bottom: 1px solid whitesmoke;
-	background-color: #134444;
 `;
 
 const HeaderInformation = styled.div`
@@ -220,7 +231,7 @@ const InputContainer = styled.form`
 	padding: 10px;
 	position: sticky;
 	bottom: 0;
-	background-color: #134444;
+	background-color: #4285f4;
 	z-index: 100;
 	width: 100%;
 	border-top: 1px solid whitesmoke;
@@ -253,15 +264,4 @@ const AttachFilee = styled(AttachFile)`
 
 const MoreVertt = styled(MoreVert)`
 	color: whitesmoke;
-`;
-
-const MessageContainer = styled.div`
-	padding: 20px;
-	background-color: #134444;
-	min-height: 85vh;
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-
-	position: relative;
 `;
