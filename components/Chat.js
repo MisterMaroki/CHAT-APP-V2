@@ -60,8 +60,4 @@ const UserAvatar = styled(Avatar)`
 	margin-right: 15px;
 `;
 
-const ContactEmail = styled.p`
-	@media screen and (max-width: 768px) {
-		display: none;
-	}
-`;
+const ContactEmail = styled.p``;
