@@ -61,7 +61,6 @@ function Sidebar() {
 				{'Start a new chat'}
 			</SidebarButton>
 
-			{/*list of chats*/}
 			{chatsSnapshot?.docs.map((chat) => (
 				<Chat key={chat.id} id={chat.id} users={chat.data().users} />
 			))}

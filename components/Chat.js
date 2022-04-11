@@ -19,6 +19,12 @@ function Chat({ id, users }) {
 
 	const recipient = recipientSnapshot?.docs?.[0]?.data();
 	const recipientEmail = getRecipientEmail(users, user);
+
+	const filterEmail = recipientEmail.substring(
+		0,
+		recipientEmail.lastIndexOf('@')
+	);
+
 	return (
 		<Container onClick={enterChat}>
 			{recipient ? (
@@ -27,7 +33,7 @@ function Chat({ id, users }) {
 				<UserAvatar>{recipientEmail[0]}</UserAvatar>
 			)}
 
-			<ContactEmail>{recipientEmail}</ContactEmail>
+			<ContactEmail>{filterEmail}</ContactEmail>
 		</Container>
 	);
 }
