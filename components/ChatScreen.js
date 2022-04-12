@@ -152,9 +152,6 @@ function ChatScreen({ chat, messages }) {
 export default ChatScreen;
 
 const Container = styled.div`
-	flex: 3;
-	height: 100vh;
-
 	&&& {
 		color: whitesmoke;
 	}
@@ -165,7 +162,6 @@ const MessageContainer = styled.div`
 	background-color: #e9eaeb;
 	min-height: 85vh;
 	width: 100%;
-	padding-left: 31vw;
 	display: flex;
 	flex-direction: column;
 	box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,

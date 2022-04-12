@@ -59,9 +59,7 @@ function Sidebar() {
 					<SearchIcon />
 					<SearchInput placeholder="Search in chats" />
 				</Search>
-				<SidebarButton onClick={createNewChat}>
-					{'Start a new chat'}
-				</SidebarButton>
+				<SidebarButton onClick={createNewChat}>{'New chat'}</SidebarButton>
 			</IconsContainerr>
 
 			{chatsSnapshot?.docs.map((chat) => (
@@ -77,8 +75,6 @@ const Container = styled.div`
 	flex: 0.4;
 	border-radius: 1px solid whitesmoke;
 	height: 100vh;
-	position: fixed;
-	overflow-y: scroll;
 	overflow-x: hidden;
 	background-color: whitesmoke;
 	&&& {
@@ -90,9 +86,7 @@ const Container = styled.div`
 	}
 	-ms-overflow-style: none;
 	scrollbar-width: none;
-	@media screen and (max-width: 770px) {
-		min-width: none;
-	}
+	min-width: 5vw;
 	z-index: 200;
 `;
 
@@ -157,6 +151,9 @@ const IconsContainerr = styled(IconsContainer)`
 	z-index: 200;
 	background: whitesmoke;
 	justify-content: center;
+
+	flex-direction: column;
+	align-items: center;
 `;
 
 const SidebarButton = styled(Button)`
@@ -172,6 +169,7 @@ const SidebarButton = styled(Button)`
 			font-size: 0.7rem;
 			font-weight: bold;
 		}
+		min-width: 100px;
 	}
 `;
 const ChatIconn = styled(ChatIcon)`

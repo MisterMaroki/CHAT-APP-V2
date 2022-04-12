@@ -60,4 +60,8 @@ const UserAvatar = styled(Avatar)`
 	margin-right: 15px;
 `;
 
-const ContactEmail = styled.p``;
+const ContactEmail = styled.p`
+	@media (max-width: 500px) {
+		display: none;
+	}
+`;
