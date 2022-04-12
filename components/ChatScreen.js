@@ -165,6 +165,7 @@ const MessageContainer = styled.div`
 	background-color: #e9eaeb;
 	min-height: 85vh;
 	width: 100%;
+	padding-left: 31vw;
 	display: flex;
 	flex-direction: column;
 	box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
@@ -173,12 +174,15 @@ const MessageContainer = styled.div`
 `;
 
 const Header = styled.div`
-	position: sticky;
-
-	z-index: 100;
+	position: fixed;
 	top: 0;
-	display: flex;
+	left: 0;
+	margin-left: 28vw;
 	padding: 11px;
+	padding-left: 4vw;
+	z-index: 100;
+
+	display: flex;
 	height: 80px;
 	width: 100%;
 	align-items: center;
@@ -232,7 +236,7 @@ const InputContainer = styled.form`
 	position: fixed;
 	bottom: 0;
 	left: 0;
-	padding-left: 30vw;
+	padding-left: 32vw;
 	background-color: #4285f4;
 	z-index: 100;
 	width: 100%;
