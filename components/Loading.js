@@ -15,6 +15,7 @@ function Loading() {
 					src="/loader.gif"
 					alt="Loading screen"
 					style={{ marginBottom: 10, opacity: 0.7 }}
+					className="loaderImg"
 					height={300}
 				/>
 

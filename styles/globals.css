@@ -15,3 +15,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.loaderImg {
+  filter: sepia(100%) hue-rotate(170deg) brightness(30%) saturate(900%);
+}
