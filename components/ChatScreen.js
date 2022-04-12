@@ -62,7 +62,7 @@ function ChatScreen({ chat, messages }) {
 		}
 	};
 
-	const showWelcomeURL = messages.length > 2;
+	const showWelcomeURL = messages.length < 2;
 	console.log(showWelcomeURL);
 	const sendMessage = (e) => {
 		e.preventDefault();
@@ -121,11 +121,11 @@ function ChatScreen({ chat, messages }) {
 
 			<MessageContainer>
 				{showMessages()}
-				{showWelcomeURL ? (
+				{!showWelcomeURL ? (
 					''
 				) : (
 					<Box style={{ position: 'absolute', bottom: '0' }}>
-						<Image height={250} width={250} src="/robot.gif" />
+						<Image height={250} alt="robot" width={250} src="/robot.gif" />
 					</Box>
 				)}
 				<EndOfMessage ref={endOfMessagesRef} />
@@ -153,6 +153,7 @@ export default ChatScreen;
 
 const Container = styled.div`
 	flex: 3;
+	height: 100vh;
 
 	&&& {
 		color: whitesmoke;
@@ -170,6 +171,7 @@ const MessageContainer = styled.div`
 		rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 	position: relative;
 `;
+
 const Header = styled.div`
 	position: sticky;
 
@@ -220,21 +222,17 @@ const Input = styled.input`
 	padding: 20px;
 	margin: 0;
 	margin-right: 15px;
-	min-width: 10px;
-	/* @media (max-width: 850px) {
-		flex-basis: 250px;
-	}
-	@media (max-width: 550px) {
-		flex-basis: 150px;
-	} */
+	max-width: 50%;
 `;
 
 const InputContainer = styled.form`
 	display: flex;
 	align-items: center;
 	padding: 10px;
-	position: sticky;
+	position: fixed;
 	bottom: 0;
+	left: 0;
+	padding-left: 30vw;
 	background-color: #4285f4;
 	z-index: 100;
 	width: 100%;
