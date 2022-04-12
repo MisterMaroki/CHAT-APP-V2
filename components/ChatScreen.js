@@ -39,7 +39,7 @@ function ChatScreen({ chat, messages }) {
 	const scrollToBottom = () => {
 		endOfMessagesRef.current?.scrollIntoView({
 			behavior: 'smooth',
-			block: 'start',
+			block: 'center',
 		});
 	};
 	const showMessages = () => {
@@ -63,7 +63,6 @@ function ChatScreen({ chat, messages }) {
 	};
 
 	const showWelcomeURL = messages.length < 2;
-	console.log(showWelcomeURL);
 	const sendMessage = (e) => {
 		e.preventDefault();
 		db.collection('users')
@@ -152,6 +151,7 @@ function ChatScreen({ chat, messages }) {
 export default ChatScreen;
 
 const Container = styled.div`
+	height: 100%;
 	&&& {
 		color: whitesmoke;
 	}
@@ -167,6 +167,11 @@ const MessageContainer = styled.div`
 	box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
 		rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 	position: relative;
+	&&& {
+		:nth-last-child(-n + 1) {
+			color: green;
+		}
+	}
 `;
 
 const Header = styled.div`
@@ -246,7 +251,8 @@ const InputContainer = styled.form`
 `;
 
 const EndOfMessage = styled.div`
-	padding-bottom: 60px;
+	height: 18vh;
+	content: '';
 `;
 
 const HeaderIcons = styled.div`

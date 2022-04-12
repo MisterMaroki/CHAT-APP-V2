@@ -74,7 +74,7 @@ export default Sidebar;
 const Container = styled.div`
 	flex: 0.4;
 	border-radius: 1px solid whitesmoke;
-	height: 100vh;
+	height: 100%;
 	overflow-x: hidden;
 	background-color: whitesmoke;
 	&&& {

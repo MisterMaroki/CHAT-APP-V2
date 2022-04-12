@@ -24,6 +24,7 @@ function Chat({ id, users }) {
 		0,
 		recipientEmail.lastIndexOf('@')
 	);
+	console.log(recipient);
 
 	return (
 		<Container onClick={enterChat}>

@@ -30,7 +30,7 @@ function Login() {
 		button.addEventListener('click', createRipple);
 	}
 
-	const signIn = () => {
+	const signIn = async () => {
 		auth.signInWithPopup(provider).catch(alert);
 	};
 
@@ -59,7 +59,7 @@ const Container = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 100vh;
+	height: 100%;
 	background-color: #131344;
 
 	span.ripple {

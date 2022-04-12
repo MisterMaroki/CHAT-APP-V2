@@ -29,13 +29,14 @@ export default Chat;
 const Container = styled.div`
 	display: flex;
 	width: 100%;
+	height: 100%
 	overflow: hidden;
 `;
 
 const ChatContainer = styled.div`
 	flex: 1;
 	overflow-y: scroll;
-	height: 100vh;
+	height: 100%;
 
 	::-webkit-scrollbar {
 		display: none;
