@@ -80,6 +80,7 @@ const Container = styled.div`
 	overflow-x: hidden;
 	touch-action: cross-slide-y;
 	background-color: whitesmoke;
+	padding-top: 20vh;
 	&&& {
 		color: black;
 	}
@@ -95,16 +96,17 @@ const Container = styled.div`
 
 const Header = styled.div`
 	display: flex;
-	position: sticky;
+	position: fixed;
 	top: 0;
 	z-index: 1000;
 	justify-content: space-between;
 	align-items: center;
 	padding: 15px;
 	height: 80px;
-	width: 100%;
+	width: 30vw;
 	border-bottom: 1px solid whitesmoke;
 	background-color: whitesmoke;
+
 	@media (max-width: 500px) {
 		padding: 5px;
 	}
@@ -125,7 +127,7 @@ const Search = styled.div`
 	border-radius: 2px;
 	width: 100%;
 	@media (max-width: 568px) {
-		padding: 5px;
+		padding: 15px;
 	}
 `;
 

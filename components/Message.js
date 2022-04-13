@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import { auth } from '../firebase';
 
 function Message(key) {
-	const message = key?.message;
+	const message = key.message;
 	const [userLoggedIn] = useAuthState(auth);
 
-	const TypeOfMessage = key.user === userLoggedIn.email ? Sender : Receiver;
+	const TypeOfMessage = message.user === userLoggedIn.email ? Sender : Receiver;
 
 	return (
 		<Container>

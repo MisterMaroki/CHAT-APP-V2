@@ -61,11 +61,13 @@ const Container = styled.div`
 `;
 const UserAvatar = styled(Avatar)`
 	margin: 5px;
+	@media (min-width: 500px) {
+		margin-right: 15px;
+	}
 `;
 
 const ContactEmail = styled.p`
 	@media (max-width: 500px) {
 		display: none;
-		margin-left: 15px;
 	}
 `;

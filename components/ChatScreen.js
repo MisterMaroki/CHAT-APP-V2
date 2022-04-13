@@ -161,7 +161,7 @@ const Container = styled.div`
 const MessageContainer = styled.div`
 	padding: 20px;
 	background-color: #e9eaeb;
-	min-height: 85vh;
+	min-height: 95vh;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -172,6 +172,9 @@ const MessageContainer = styled.div`
 		:nth-last-child(-n + 1) {
 			color: green;
 		}
+	}
+	@media (max-width: 700px) {
+		min-height: 85vh;
 	}
 `;
 
