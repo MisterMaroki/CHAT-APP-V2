@@ -152,6 +152,7 @@ export default ChatScreen;
 
 const Container = styled.div`
 	height: 100%;
+	overflow: hidden;
 	&&& {
 		color: whitesmoke;
 	}
@@ -181,11 +182,11 @@ const Header = styled.div`
 	margin-left: 28vw;
 	padding: 11px;
 	padding-left: 4vw;
-	z-index: 100;
+	z-index: 105;
 
 	display: flex;
 	height: 80px;
-	width: 100%;
+	width: 72vw;
 	align-items: center;
 	background-color: #4285f4;
 
@@ -227,7 +228,7 @@ const Input = styled.input`
 	padding: 20px;
 	margin: 0;
 	margin-right: 15px;
-	max-width: 50%;
+	max-width: 50vw;
 `;
 
 const InputContainer = styled.form`

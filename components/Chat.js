@@ -53,16 +53,19 @@ const Container = styled.div`
 		background-color: #e9eaeb;
 	}
 	@media (max-width: 768px) {
+		justify-content: flex-start;
+	}
+	@media (max-width: 500px) {
 		justify-content: center;
 	}
 `;
 const UserAvatar = styled(Avatar)`
 	margin: 5px;
-	margin-right: 15px;
 `;
 
 const ContactEmail = styled.p`
 	@media (max-width: 500px) {
 		display: none;
+		margin-left: 15px;
 	}
 `;

@@ -72,10 +72,13 @@ function Sidebar() {
 export default Sidebar;
 
 const Container = styled.div`
+	position: fixed;
 	flex: 0.4;
+	width: 30vw;
 	border-radius: 1px solid whitesmoke;
 	height: 100%;
 	overflow-x: hidden;
+	touch-action: cross-slide-y;
 	background-color: whitesmoke;
 	&&& {
 		color: black;
@@ -86,7 +89,7 @@ const Container = styled.div`
 	}
 	-ms-overflow-style: none;
 	scrollbar-width: none;
-	min-width: 5vw;
+	min-width: 4vw;
 	z-index: 200;
 `;
 
@@ -102,6 +105,9 @@ const Header = styled.div`
 	width: 100%;
 	border-bottom: 1px solid whitesmoke;
 	background-color: whitesmoke;
+	@media (max-width: 500px) {
+		padding: 5px;
+	}
 `;
 
 const UserAvatar = styled(Avatar)`
@@ -145,7 +151,8 @@ const IconsContainer = styled.div`
 	}
 `;
 const IconsContainerr = styled(IconsContainer)`
-	position: sticky;
+	position: fixed;
+	width: 30vw;
 	top: 65px;
 	left: 0;
 	z-index: 200;
