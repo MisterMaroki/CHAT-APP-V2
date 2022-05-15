@@ -22,10 +22,17 @@ function MyApp({ Component, pageProps }) {
 		}
 	}, [user]);
 
-	if (loading) return <Loading />;
+	return loading ? (
+		<Loading />
+	) : !user ? (
+		<Login />
+	) : (
+		<Component {...pageProps} />
+	);
+	// if (loading) return <Loading />;
 
-	if (!user) return <Login />;
-	return <Component {...pageProps} />;
+	// if (!user) return <Login />;
+	// return <Component {...pageProps} />;
 }
 
 export default MyApp;

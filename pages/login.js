@@ -2,37 +2,17 @@ import { Button, IconButton } from '@material-ui/core';
 import Head from 'next/head';
 import styled from 'styled-components';
 import { auth, provider, signInWithPopup } from '../firebase';
+import createRipple from '../utils/buttonRipple';
 
 function Login() {
-	function createRipple(event) {
-		const button = event.currentTarget;
-
-		const circle = document.createElement('span');
-		const diameter = Math.max(button.clientWidth, button.clientHeight);
-		const radius = diameter / 2;
-
-		circle.style.width = circle.style.height = `${diameter}px`;
-		circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
-		circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
-		circle.classList.add('ripple');
-
-		const ripple = button.getElementsByClassName('ripple')[0];
-
-		if (ripple) {
-			ripple.remove();
-		}
-
-		button.appendChild(circle);
-	}
+	const signIn = async () => {
+		auth.signInWithPopup(provider).catch(alert);
+	};
 
 	const buttons = document.getElementsByTagName('button');
 	for (const button of buttons) {
 		button.addEventListener('click', createRipple);
 	}
-
-	const signIn = async () => {
-		auth.signInWithPopup(provider).catch(alert);
-	};
 
 	return (
 		<Container>
