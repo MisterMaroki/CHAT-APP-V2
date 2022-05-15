@@ -29,10 +29,6 @@ function MyApp({ Component, pageProps }) {
 	) : (
 		<Component {...pageProps} />
 	);
-	// if (loading) return <Loading />;
-
-	// if (!user) return <Login />;
-	// return <Component {...pageProps} />;
 }
 
 export default MyApp;

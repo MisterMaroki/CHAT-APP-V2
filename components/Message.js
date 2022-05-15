@@ -33,8 +33,8 @@ const MessageElement = styled.p`
 	padding-bottom: 26px;
 	position: relative;
 	text-align: right;
-	/* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
-	box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+	/* box-shadow: rgba(17, 12, 46, 0.15) 0px 14px 10px 0px; */
 `;
 
 const Sender = styled(MessageElement)`

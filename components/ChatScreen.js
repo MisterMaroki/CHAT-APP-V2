@@ -152,6 +152,7 @@ export default ChatScreen;
 
 const Container = styled.div`
 	height: 100%;
+
 	overflow: hidden;
 	&&& {
 		color: whitesmoke;
@@ -160,7 +161,7 @@ const Container = styled.div`
 
 const MessageContainer = styled.div`
 	padding: 20px;
-	background-color: #e9eaeb;
+	background: url(https://cdn.wallpapersafari.com/27/32/jt4AoG.jpg) fixed center;
 	min-height: 95vh;
 	width: 100%;
 	display: flex;

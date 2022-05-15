@@ -8,6 +8,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import { auth, db } from '../firebase';
 import Chat from './Chat';
+
 function Sidebar() {
 	const [user] = useAuthState(auth);
 	console.log(user.photoURL);

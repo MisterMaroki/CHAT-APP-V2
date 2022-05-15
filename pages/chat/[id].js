@@ -37,7 +37,7 @@ const ChatContainer = styled.div`
 	width: 70vw;
 	padding-left: 30vw;
 	overflow-y: scroll;
-	min-height: 100%;
+	height: 100%;
 
 	::-webkit-scrollbar {
 		display: none;
