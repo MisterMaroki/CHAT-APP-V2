@@ -91,7 +91,7 @@ function ChatScreen({ chat, messages }) {
 				{recipient ? (
 					<Avatar src={recipient?.photoURL} />
 				) : (
-					<Avatar src={recipientEmail[0]} />
+					<Avatar src={`https://api.multiavatar.com/${recipientEmail}.png`} />
 				)}
 				<HeaderInformation>
 					<h3>{recipientEmail}</h3>

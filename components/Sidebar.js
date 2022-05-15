@@ -11,7 +11,6 @@ import Chat from './Chat';
 
 function Sidebar() {
 	const [user] = useAuthState(auth);
-	console.log(user.photoURL);
 	const userChatRef = db
 		.collection('chats')
 		.where('users', 'array-contains', user.email);

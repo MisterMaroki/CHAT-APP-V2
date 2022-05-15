@@ -24,14 +24,13 @@ function Chat({ id, users }) {
 		0,
 		recipientEmail.lastIndexOf('@')
 	);
-	console.log(recipient);
 
 	return (
 		<Container onClick={enterChat}>
-			{recipient ? (
+			{recipient?.photoURL ? (
 				<UserAvatar src={recipient?.photoURL} />
 			) : (
-				<UserAvatar>{recipientEmail[0]}</UserAvatar>
+				<UserAvatar src={`https://api.multiavatar.com/${recipientEmail}.png`} />
 			)}
 
 			<ContactEmail>{filterEmail}</ContactEmail>
