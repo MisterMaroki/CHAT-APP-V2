@@ -5,11 +5,10 @@ Instant messaging for anyone that has a google account.
 # Improvements to come:
 
 - Github login
-- Fallback avatars(Completed)
+- Fallback avatars(Completed ✅)
 - search members by name
 - search messages feature
 - edit, delete methods
-
 
 
 
