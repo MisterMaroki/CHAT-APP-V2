@@ -160,7 +160,7 @@ const Container = styled.div`
 `;
 
 const MessageContainer = styled.div`
-	padding: 20px;
+	padding: 10vh 1rem 0 1rem;
 	background: url(https://cdn.wallpapersafari.com/27/32/jt4AoG.jpg) fixed center;
 	min-height: 95vh;
 	width: 100%;
