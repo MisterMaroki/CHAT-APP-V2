@@ -1,3 +1,20 @@
+This project features a mix of SSR and CSR, it was built with Next-js, Firebase, MUI, and a small sprinkle of other packages.
+
+Instant messaging for anyone that has a google account.
+
+# Improvements to come:
+
+- Github login
+- Fallback avatars(Completed)
+- search members by name
+- search messages feature
+- edit, delete methods
+
+
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
