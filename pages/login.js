@@ -1,5 +1,6 @@
 import { Button, IconButton } from '@material-ui/core';
 import Head from 'next/head';
+import Image from 'next/image';
 import styled from 'styled-components';
 import { auth, provider, signInWithPopup } from '../firebase';
 import createRipple from '../utils/buttonRipple';
@@ -21,7 +22,15 @@ function Login() {
 			</Head>
 
 			<LoginContainer>
-				<Logo src="/logo.svg" />
+				{/* <LogoDiv> */}
+				<Image
+					src="/logo.svg"
+					alt="logo"
+					width={200}
+					height={200}
+					objectFit="contain"
+				/>
+				{/* </LogoDiv> */}
 				<H1>Snappy</H1>
 
 				{/* <button>Sign in with Google</button> */}
@@ -35,7 +44,7 @@ function Login() {
 
 export default Login;
 
-const Container = styled.div`
+export const Container = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -56,6 +65,16 @@ const Container = styled.div`
 			opacity: 0;
 		}
 	}
+`;
+
+const LoginContainer = styled.div`
+	display: flex;
+	padding: 100px;
+	align-items: center;
+	flex-direction: column;
+	background-color: lightgray;
+	border-radius: 5px;
+	box-shadow: 0px 4px 14px -3px rgba(0, 0, 0, 0.75);
 `;
 
 const Buttonn = styled(Button)`
@@ -79,21 +98,6 @@ const Buttonn = styled(Button)`
 			opacity: 0.9;
 		}
 	}
-`;
-const LoginContainer = styled.div`
-	display: flex;
-	padding: 100px;
-	align-items: center;
-	flex-direction: column;
-	background-color: lightgray;
-	border-radius: 5px;
-	box-shadow: 0px 4px 14px -3px rgba(0, 0, 0, 0.75);
-`;
-
-const Logo = styled.img`
-	height: 200px;
-	width: 200px;
-	padding-bottom: 20px;
 `;
 
 const H1 = styled.h1`

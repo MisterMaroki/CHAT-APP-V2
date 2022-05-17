@@ -17,6 +17,7 @@ import firebase from 'firebase/compat/app';
 import getRecipientEmail from '../utils/getRecipientEmail';
 import TimeAgo from 'timeago-react';
 import Image from 'next/image';
+import { UserAvatar } from './Chat';
 
 function ChatScreen({ chat, messages }) {
 	const [user] = useAuthState(auth);
@@ -88,10 +89,12 @@ function ChatScreen({ chat, messages }) {
 	return (
 		<Container>
 			<Header>
-				{recipient ? (
-					<Avatar src={recipient?.photoURL} />
+				{recipient?.photoURL ? (
+					<UserAvatar src={recipient?.photoURL} />
 				) : (
-					<Avatar src={`https://api.multiavatar.com/${recipientEmail}.png`} />
+					<UserAvatar
+						src={`https://api.multiavatar.com/${recipientEmail}.png`}
+					/>
 				)}
 				<HeaderInformation>
 					<h3>{recipientEmail}</h3>

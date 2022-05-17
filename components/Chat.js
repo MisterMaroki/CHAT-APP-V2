@@ -27,7 +27,7 @@ function Chat({ id, users }) {
 
 	return (
 		<Container onClick={enterChat}>
-			{recipient?.photoURL ? (
+			{recipient && recipient?.photoURL ? (
 				<UserAvatar src={recipient?.photoURL} />
 			) : (
 				<UserAvatar src={`https://api.multiavatar.com/${recipientEmail}.png`} />
@@ -58,7 +58,7 @@ const Container = styled.div`
 		justify-content: center;
 	}
 `;
-const UserAvatar = styled(Avatar)`
+export const UserAvatar = styled(Avatar)`
 	margin: 5px;
 	@media (min-width: 500px) {
 		margin-right: 15px;
