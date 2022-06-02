@@ -1,3 +1,4 @@
+import { LinearProgress } from '@material-ui/core';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -18,7 +19,11 @@ function Chat({ chat, messages }) {
 
 			<Sidebar />
 			<ChatContainer>
-				<ChatScreen chat={chat} messages={messages} />
+				{chat && messages ? (
+					<ChatScreen chat={chat} messages={messages} />
+				) : (
+					<LinearProgress />
+				)}
 			</ChatContainer>
 		</Container>
 	);
